@@ -1,0 +1,11 @@
+appdirs==1.4.3
+contextlib2==0.5.5
+falcon==1.2.0
+gunicorn==19.7.1
+packaging==16.8
+pyparsing==2.2.0
+python-mimeparse==1.6.0
+PyYAML==3.12
+raven==6.0.0
+redis==2.10.5
+six==1.10.0
