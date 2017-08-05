@@ -7,5 +7,5 @@ class Sink(object):
         pass
 
     @staticmethod
-    def get_sink(self, req, resp):
+    def get_sink(self, req):
         _logger.debug("Request went to sink")

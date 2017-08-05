@@ -1,6 +1,6 @@
 import logging
 
-from app.core.exception import ValidationError
+from .exception import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -45,11 +45,6 @@ class Validator(object):
 
     def validate(self, path, val):
         pass
-        # if val is None and required:
-        #     self._raise(
-        #         "Missing required field: '{}'".format(path),
-        #         ""
-        #     )
 
 
 class LineValidator(Validator):
@@ -69,31 +64,31 @@ class LineValidator(Validator):
         self._check_constraint(path, value)
 
         return value
-
-
-class ListValidator(Validator):
-    def __init__(self, validator, default=None):
-        super(ListValidator, self).__init__()
-        self.validator = validator
-        self.default = default  # if default is not None else []
-
-    def validate(self, path, val):
-        super(ListValidator, self).validate(path, val)
-        if val and not isinstance(val, list):
-            self._raise(
-                "Value at '{}' needs to be list".format(path),
-                ""
-            )
-
-        res = []
-        if val:
-            for i, item in enumerate(val):
-                res.append(self.validator.validate(
-                    self._add_to_path(path, i),
-                    item
-                ))
-
-        return res
+#
+#
+# class ListValidator(Validator):
+#     def __init__(self, validator, default=None):
+#         super(ListValidator, self).__init__()
+#         self.validator = validator
+#         self.default = default  # if default is not None else []
+#
+#     def validate(self, path, val):
+#         super(ListValidator, self).validate(path, val)
+#         if val and not isinstance(val, list):
+#             self._raise(
+#                 "Value at '{}' needs to be list".format(path),
+#                 ""
+#             )
+#
+#         res = []
+#         if val:
+#             for i, item in enumerate(val):
+#                 res.append(self.validator.validate(
+#                     self._add_to_path(path, i),
+#                     item
+#                 ))
+#
+#         return res
 
 
 class SchemaValidator(Validator):

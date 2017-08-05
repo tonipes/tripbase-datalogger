@@ -3,7 +3,15 @@ import os
 
 from logging.config import dictConfig
 
-CONFIG = {}
+CONFIG = {
+    "sentry_url": "https://56bc174ff2d94704aca19c6da6ead15f:10a24caf16444cb893b664bd271fe421@sentry.io/171870",
+    "redis_url": "localhost",
+    "redis_port": 6379,
+    "redis_db": 0,
+    "master_key": "asd",
+    "environment": "debug",
+    "model_definition": "/home/toni/Development/tripbase-env/tripbase-datalogger/models/test.yml",
+}
 
 for k, v in os.environ.items():
     if k.startswith("TRIPBASE_"):

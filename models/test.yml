@@ -1,0 +1,15 @@
+# Test entry
+test_model:
+  name: Test Model
+  fields:
+    - name: comment
+      type: base.float
+      visible: true
+      widget: float
+
+other_model:
+  name: Other Model
+  fields:
+    name: base.text
+    age: base.float
+    comment: base.text
